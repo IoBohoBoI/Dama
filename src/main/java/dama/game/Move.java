@@ -3,6 +3,9 @@ package dama.game;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe che rappresenta le mosse della Dama
+ */
 public class Move
 {
     private int startRow, startCol;
@@ -10,7 +13,13 @@ public class Move
     private boolean isCapture;
     private int capturedRow, capturedCol;
 
-    //Costruttore mossa
+    /**
+     * Costruttore mossa
+     * @param startRow
+     * @param startCol
+     * @param endRow
+     * @param endCol
+     */
     public Move(int startRow, int startCol, int endRow, int endCol)
     {
         this.startRow = startRow;
@@ -20,7 +29,15 @@ public class Move
         this.isCapture = false;
     }
 
-    //Costruttore cattura
+    /**
+     * Costruttore cattura
+     * @param startRow
+     * @param startCol
+     * @param endRow
+     * @param endCol
+     * @param capturedRow
+     * @param capturedCol
+     */
     public Move(int startRow, int startCol, int endRow, int endCol, int capturedRow, int capturedCol)
     {
         this.startRow = startRow;
@@ -32,15 +49,55 @@ public class Move
         this.capturedCol = capturedCol;
     }
 
+    /**
+     * Metodo per il get della riga di partenza
+     * @return startRow
+     */
     public int getStartRow() { return startRow; }
+
+    /**
+     * Metodo per il get della colonna di partenza
+     * @return startCol
+     */
     public int getStartCol() { return startCol; }
+
+    /**
+     * Metodo per il get della riga di fine
+     * @return endRow
+     */
     public int getEndRow() { return endRow; }
+
+    /**
+     * Metodo per il get della colonna di fine
+     * @return endCol
+     */
     public int getEndCol() { return endCol; }
+
+    /**
+     * Metodo che restituisce il valore isCapture del pezzo
+     * @return isCapture
+     */
     public boolean isCapture() { return isCapture; }
+
+    /**
+     * Metodo che restituisce il valore della riga del pezzo catturato
+     * @return capturedRow
+     */
     public int getCapturedRow() { return capturedRow; }
+
+    /**
+     * Metodo che restituisce il valore della colonna del pezzo catturato
+     * @return capturedRCol
+     */
     public int getCapturedCol() { return capturedCol; }
 
-    //Restituisce le mosse possibili
+    /**
+     * Restituisce le mosse possibili
+     * @param board
+     * @param row
+     * @param col
+     * @return moves
+     */
     public static List<Move> getPossibleMoves(Board board, int row, int col)
     {
         List<Move> moves = new ArrayList<>();
@@ -80,6 +137,15 @@ public class Move
         return moves;
     }
 
+    /**
+     * Metodo che controlla se una mossa effettuata è valida o no
+     * @param board
+     * @param row
+     * @param col
+     * @param newRow
+     * @param newCol
+     * @return true se la mossa è valida, false altrimenti
+     */
     private static boolean isValidMove(Board board, int row, int col, int newRow, int newCol)
     {
         if (newRow < 0 || newRow >= Board.SIZE || newCol < 0 || newCol >= Board.SIZE)
@@ -91,6 +157,17 @@ public class Move
         return true;
     }
 
+    /**
+     * Metodo che controlla se la cattura di un pezzo è valida
+     * @param board
+     * @param row
+     * @param col
+     * @param midRow
+     * @param midCol
+     * @param newRow
+     * @param newCol
+     * @return true se la cattura è valida, false altrimenti
+     */
     private static boolean isValidCapture(Board board, int row, int col, int midRow, int midCol, int newRow, int newCol)
     {
         if (newRow < 0 || newRow >= Board.SIZE || newCol < 0 || newCol >= Board.SIZE)

@@ -27,6 +27,16 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.8.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -40,7 +50,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>target/</classpathPrefix>
-                            <mainClass>com.asd.Main</mainClass>
+                            <mainClass>com.dama.game.Game</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -94,6 +104,9 @@
                 </executions>
                 <configuration>
                     <configLocation>/checkstyle.xml</configLocation>
+                    <excludes>
+                        **/module-info.java
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

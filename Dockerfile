@@ -2,7 +2,7 @@ FROM openjdk:21
 
 WORKDIR /app
 
-COPY target/dama-1.0-SNAPSHOT.jar app.jar
+COPY target/Checkers-1.0-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 

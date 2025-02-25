@@ -14,13 +14,28 @@ public class Controller
         whiteTurn = true;
     }
 
+    /**
+     * Metodo che restituisce la scacchiera
+     * @return board
+     */
     public Board getBoard() { return board; }
 
+    /**
+     * Metodo che restituisce il valore di whiteTurn
+     * @return whiteTurn
+     */
     public boolean isWhiteTurn() { return whiteTurn; }
 
+    /**
+     * Metodo che permette di cambiare il turno da bianco a nero
+     */
     public void switchTurn() { whiteTurn = !whiteTurn; }
 
-    //Restituisce tutte le mosse possibili
+    /**
+     * Metodo che restituisce tutte le mosse possibili
+     * @param forWhite
+     * @return moves
+     */
     public List<Move> getAllPossibleMoves(boolean forWhite)
     {
         List<Move> moves = new ArrayList<>();
@@ -47,7 +62,11 @@ public class Controller
         return moves;
     }
 
-    //Esegue la mossa
+    /**
+     * Metodo che esegue la mossa
+     * @param move
+     * @return true se la mossa è valida, false altrimenti
+     */
     public boolean makeMove(Move move)
     {
         Piece piece = board.getPiece(move.getStartRow(), move.getStartCol());
@@ -108,7 +127,10 @@ public class Controller
         return true;
     }
 
-    //Verifica lo stato del gioco
+    /**
+     * Metodo che verifica se il gioco è finito
+     * @return -1 se vince il nero, 1 se vince il bianco, 2 se il gioco è in corso
+     */
     public int checkGameOver()
     {
         boolean whiteHasMove = false;

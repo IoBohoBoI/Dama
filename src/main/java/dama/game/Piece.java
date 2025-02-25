@@ -1,27 +1,51 @@
 package dama.game;
 
-public class Piece
-{
-    private boolean isWhite;
+/**
+ * Classe che rappresenta un pezzo della dama.
+ */
+public class Piece {
+    private final boolean isWhite;
     private boolean isKing;
 
-    public Piece(boolean isWhite)
-    {
+    /**
+     * Costruttore della classe Piece.
+     * @param isWhite Indica se il pezzo è bianco.
+     */
+    public Piece(final boolean isWhite) {
         this.isWhite = isWhite;
         this.isKing = false;
     }
 
-    public boolean isWhite() { return isWhite; }
+    /**
+     * Restituisce true se il pezzo è bianco.
+     * @return true se il pezzo è bianco, false altrimenti.
+     */
+    public boolean isWhite() {
+        return isWhite;
+    }
 
-    public boolean isKing() { return isKing; }
+    /**
+     * Restituisce true se il pezzo è re.
+     * @return true se il pezzo è re, false altrimenti.
+     */
+    public boolean isKing() {
+        return isKing;
+    }
 
-    public void crown() { isKing = true; }
+    /**
+     * Promuove il pezzo a re.
+     */
+    public void crown() {
+        isKing = true;
+    }
 
-    public Piece clone()
-    {
+    /**
+     * Clona il pezzo corrente.
+     * @return Un nuovo oggetto Piece con gli stessi attributi.
+     */
+    public Piece clone() {
         Piece newPiece = new Piece(this.isWhite);
         newPiece.isKing = this.isKing;
-
         return newPiece;
     }
 }

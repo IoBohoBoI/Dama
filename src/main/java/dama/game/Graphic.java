@@ -25,6 +25,10 @@ public class Graphic extends Application
     private int selectedRow = -1, selectedCol = -1;
     private List<Move> availableMoves = new ArrayList<>(); //Mosse disponibili
 
+    /**
+     * Metodo che inizializza la scena della scacchiera della Dama
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage)
     {
@@ -42,7 +46,9 @@ public class Graphic extends Application
             Platform.runLater(() -> performAIMove());
     }
 
-    //Disegna la scacchiera
+    /**
+     * Metodo che disegna la scacchiera
+     */
     private void drawBoard()
     {
         grid.getChildren().clear();
@@ -119,7 +125,11 @@ public class Graphic extends Application
         }
     }
 
-    //Gestore del click
+    /**
+     * Metodo per gestire il click
+     * @param row
+     * @param col
+     */
     private void handleClick(int row, int col)
     {
         if (controller.isWhiteTurn())
@@ -175,7 +185,12 @@ public class Graphic extends Application
             }
     }
 
-    //Calcola le possibili mosse
+    /**
+     * Metodo che calcola le possibili mosse eseguibili e le restituisce
+     * @param row
+     * @param col
+     * @return moves
+     */
     private List<Move> getAvailableMoves(int row, int col)
     {
         List<Move> moves = Move.getPossibleMoves(controller.getBoard(), row, col);
@@ -202,6 +217,12 @@ public class Graphic extends Application
         return moves;
     }
 
+    /**
+     * Metodo che recupera lo StackPane alla riga e colonna specificate all'interno della griglia
+     * @param row
+     * @param col
+     * @return (StackPane) node, oppure null
+     */
     private StackPane getSquare(int row, int col)
     {
         for (javafx.scene.Node node : grid.getChildren())
@@ -216,7 +237,9 @@ public class Graphic extends Application
         return null;
     }
 
-    //Se è il turno del nero passa il controllo all'AI
+    /**
+     * Metodo che effettua l'IA per eseguire le mosse seè il turno del nero
+     */
     private void performAIMove()
     {
         if (controller.isWhiteTurn())
@@ -238,6 +261,10 @@ public class Graphic extends Application
             showGameOver(1);
     }
 
+    /**
+     * Metodo che visualizza a partita finita un messaggio di vittoria, sconfitta o pareggio
+     * @param result
+     */
     private void showGameOver(int result)
     {
         String message;

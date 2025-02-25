@@ -3,13 +3,25 @@ package dama.game;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MinMax
 {
     private static final int MAX_DEPTH = 3;
 
-    //Restituisce la mossa migliore per l'IA
+    /**
+     * Restituisce la mossa migliore per l'IA
+     * @param controller
+     * @return minimaxDecision(controller.getBoard(), MAX_DEPTH, false)
+     */
     public static Move getBestMove(Controller controller) { return minimaxDecision(controller.getBoard(), MAX_DEPTH, false); }
 
+    /**
+     * Metodo minimax che utilizza l'IA per scegliere la mossa migliore da eseguire
+     * @param board
+     * @param depth
+     * @param whiteTurn
+     * @return bestMove
+     */
     private static Move minimaxDecision(Board board, int depth, boolean whiteTurn)
     {
         List<Move> moves = getAllMoves(board, whiteTurn);
@@ -59,6 +71,15 @@ public class MinMax
         return bestMove;
     }
 
+    /**
+     * Metodo che utilizza l'IA con l'algoritmo minimax alpha-beta pruning
+     * @param board
+     * @param depth
+     * @param whiteTurn
+     * @param alpha
+     * @param beta
+     * @return value
+     */
     private static int minimax(Board board, int depth, boolean whiteTurn, int alpha, int beta)
     {
         if (depth == 0)
@@ -117,7 +138,11 @@ public class MinMax
         }
     }
 
-    //Valuta la scacchiera dal punto di vista del nero
+    /**
+     * Metodo che utilizza l'IA per valutare la scacchiera dal punto di vista del giocatore nero
+     * @param board
+     * @return value
+     */
     private static int evaluateBoard(Board board)
     {
         int value = 0;
@@ -141,7 +166,12 @@ public class MinMax
         return value;
     }
 
-    //Restituisce tutte le mosse possibili
+    /**
+     * Metodo che restituisce tutte le mosse possibili e le restituisce
+     * @param board
+     * @param forWhite
+     * @return moves
+     */
     private static List<Move> getAllMoves(Board board, boolean forWhite)
     {
         List<Move> moves = new ArrayList<>();

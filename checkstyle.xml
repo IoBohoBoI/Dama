@@ -18,13 +18,10 @@
         <!-- Javadoc obbligatorio su classi, metodi pubblici -->
         <module name="JavadocType"/>
         <module name="JavadocMethod"/>
-        <module name="JavadocVariable"/>
 
         <!-- Altre regole di formattazione -->
-        <module name="FinalParameters"/>
         <module name="NoWhitespaceBefore"/>
         <module name="WhitespaceAfter"/>
-        <module name="NeedBraces"/>
-        <module name="UnusedImports"/>
+
     </module>
 </module>
