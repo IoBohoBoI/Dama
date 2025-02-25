@@ -36,6 +36,3 @@ Il progetto è suddiviso in diverse classi principali:
 ## Come Eseguire il Progetto
 Bisogna eseguire il tutto dalla classe Game.java
 
-```
-git clone https://github.com/IoBohoBoI/dama.git
-```
