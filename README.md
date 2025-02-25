@@ -36,3 +36,8 @@ Il progetto è suddiviso in diverse classi principali:
 ## Come Eseguire il Progetto
 Bisogna eseguire il tutto dalla classe Game.java
 
+## Crediti
+Il progetto è stato creato da:
+- Cerio Kevin
+- Martino Andrea
+- Santopolo Andrea
