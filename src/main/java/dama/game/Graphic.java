@@ -238,7 +238,7 @@ public class Graphic extends Application
     }
 
     /**
-     * Metodo che effettua l'IA per eseguire le mosse seè il turno del nero
+     * Metodo che effettua l'IA per eseguire le mosse se è il turno del nero
      */
     private void performAIMove()
     {
