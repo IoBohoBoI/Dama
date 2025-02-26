@@ -41,7 +41,7 @@ public class Graphic extends Application
         drawBoard();
 
         Scene scene = new Scene(grid, Board.SIZE * TILE_SIZE, Board.SIZE * TILE_SIZE);
-        primaryStage.setTitle("Checkers");
+        primaryStage.setTitle("Dama");
         primaryStage.setScene(scene);
         primaryStage.show();
 

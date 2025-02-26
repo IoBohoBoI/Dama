@@ -1,4 +1,4 @@
-module dama.game.checkers {
+module dama.game.dama {
     requires javafx.controls;
     requires javafx.fxml;
 

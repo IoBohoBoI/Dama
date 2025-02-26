@@ -30,7 +30,7 @@ public class MinMax
         List<Move> moves = getAllMoves(board, whiteTurn);
         Move bestMove = null;
 
-        int bestValue = whiteTurn ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        int bestValue = Integer.MIN_VALUE;
         int alpha = Integer.MIN_VALUE;
         int beta = Integer.MAX_VALUE;
 
@@ -93,52 +93,27 @@ public class MinMax
         if (moves.isEmpty())
             return whiteTurn ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 
-        if (whiteTurn)
+        int value = Integer.MIN_VALUE;
+
+        for (Move move : moves)
         {
-            int value = Integer.MAX_VALUE;
+            Board newBoard = board.clone();
+            Piece piece = newBoard.getPiece(move.getStartRow(), move.getStartCol());
+            newBoard.setPiece(move.getEndRow(), move.getEndCol(), piece);
+            newBoard.setPiece(move.getStartRow(), move.getStartCol(), null);
 
-            for (Move move : moves)
-            {
-                Board newBoard = board.clone();
-                Piece piece = newBoard.getPiece(move.getStartRow(), move.getStartCol());
-                newBoard.setPiece(move.getEndRow(), move.getEndCol(), piece);
-                newBoard.setPiece(move.getStartRow(), move.getStartCol(), null);
+            if (move.isCapture())
+                newBoard.setPiece(move.getCapturedRow(), move.getCapturedCol(), null);
 
-                if (move.isCapture())
-                    newBoard.setPiece(move.getCapturedRow(), move.getCapturedCol(), null);
+            value = Math.max(value, minimax(newBoard, depth - 1, !whiteTurn, alpha, beta));
+            alpha = Math.max(alpha, value);
 
-                value = Math.min(value, minimax(newBoard, depth - 1, !whiteTurn, alpha, beta));
-                beta = Math.min(beta, value);
-
-                if (beta <= alpha)
-                    break;
-            }
-
-            return value;
+            if (beta <= alpha)
+                break;
         }
-        else
-        {
-            int value = Integer.MIN_VALUE;
 
-            for (Move move : moves)
-            {
-                Board newBoard = board.clone();
-                Piece piece = newBoard.getPiece(move.getStartRow(), move.getStartCol());
-                newBoard.setPiece(move.getEndRow(), move.getEndCol(), piece);
-                newBoard.setPiece(move.getStartRow(), move.getStartCol(), null);
+        return value;
 
-                if (move.isCapture())
-                    newBoard.setPiece(move.getCapturedRow(), move.getCapturedCol(), null);
-
-                value = Math.max(value, minimax(newBoard, depth - 1, !whiteTurn, alpha, beta));
-                alpha = Math.max(alpha, value);
-
-                if (beta <= alpha)
-                    break;
-            }
-
-            return value;
-        }
     }
 
     /**
