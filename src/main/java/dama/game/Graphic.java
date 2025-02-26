@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Classe che gestisce l’interfaccia grafica del gioco tramite JavaFX.
+ */
 public class Graphic extends Application
 {
     private static final int TILE_SIZE = 80;

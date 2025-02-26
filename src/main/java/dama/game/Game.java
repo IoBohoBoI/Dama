@@ -3,7 +3,8 @@ package dama.game;
 import javafx.application.Application;
 
 /**
- * Classe principale che avvia il gioco della dama.
+ * Classe che funziona da entry point dell’applicazione.
+ * Contiene il metodo main() che avvia l’applicazione JavaFX.
  */
 public class Game {
     /**

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe che rappresenta le mosse della Dama
+ * Classe che rappresenta una mossa nel gioco.
+ * Contiene le coordinate di partenza e di arrivo e, nel caso di una cattura,
+ * quelle della pedina avversaria da rimuovere.
  */
 public class Move
 {

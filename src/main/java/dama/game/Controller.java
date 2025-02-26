@@ -3,6 +3,9 @@ package dama.game;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe che funziona da “cervello” del gioco, gestendo la logica e le regole.
+ */
 public class Controller
 {
     private Board board;

@@ -1,7 +1,8 @@
 package dama.game;
 
 /**
- * Classe che rappresenta un pezzo della dama.
+ * Classe che rappresenta una singola pedina del gioco.
+ * Gestisce le proprietà fondamentali della pedina, come il colore e lo stato "king" (dama).
  */
 public class Piece {
     private final boolean isWhite;

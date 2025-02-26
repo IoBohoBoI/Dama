@@ -3,7 +3,10 @@ package dama.game;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Classe che implementa l’IA utilizzando l’algoritmo minimax con alpha-beta pruning
+ * per ottimizzare la ricerca.
+ */
 public class MinMax
 {
     private static final int MAX_DEPTH = 3;
